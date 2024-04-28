@@ -25,3 +25,6 @@ replay_pid*
 
 # meta information
 META-INF/
+
+# settings
+settings.json
