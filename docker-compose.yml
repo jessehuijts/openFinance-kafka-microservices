@@ -1,4 +1,4 @@
-version: ‘3.7'
+version: "3.7"
 
 services:
   zookeeper:
@@ -9,17 +9,35 @@ services:
     ports:
       - 2181:2181
     
-  kafka:
+  kafka0:
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper
     ports:
       - 9092:9092
-      - 29092:29092
+      - 29094:29094
     environment:
-      KAFKA_BROKER_ID: 1
+      KAFKA_BROKER_ID: 0
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_LISTENERS: LISTENER_BOB://kafka0:29092,LISTENER_FRED://kafka0:9092,LISTENER_ALICE://kafka0:29094
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_BOB://kafka0:29092,LISTENER_FRED://localhost:9092,LISTENER_ALICE://never-gonna-give-you-up:29094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_BOB:PLAINTEXT,LISTENER_FRED:PLAINTEXT,LISTENER_ALICE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_BOB
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+
+  kafka-web-gui:
+    image: tchiotludo/akhq:latest
+    ports:
+      - "8081:8080"
+    environment:
+      AKHQ_CONFIGURATION: |
+        akhq:
+          connections:
+            docker-kafka-server:
+              properties:
+                bootstrap.servers: kafka0:29092
+                request.timeout.ms: 60000
+    depends_on:
+      - kafka0

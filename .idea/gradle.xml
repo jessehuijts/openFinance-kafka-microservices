@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/account" />
+        <option name="gradleJvm" value="corretto-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/account" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/billing-service/gradle" />
+        <option name="gradleJvm" value="corretto-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/billing-service/gradle" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/openFinance-services" />
+        <option name="gradleJvm" value="corretto-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/openFinance-services" />
+            <option value="$PROJECT_DIR$/openFinance-services/app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

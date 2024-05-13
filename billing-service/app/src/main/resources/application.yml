@@ -1,0 +1,27 @@
+server:
+  port: 8882
+spring:
+  kafka:
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    listener:
+      missing-topics-fatal: false
+    consumer:
+      group-id: microkafka-sample
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: latest
+      properties:
+        spring.json.trusted.packages: "*"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo_db
+    driverClassName: org.postgresql.Driver
+    username: demo_dev_rw
+    password: dev_database_passwd
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true

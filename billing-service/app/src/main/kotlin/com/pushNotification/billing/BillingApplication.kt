@@ -1,4 +1,4 @@
-package com.service.pushNotificationAccount
+package com.pushNotification.billing
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
