@@ -1,0 +1,12 @@
+
+# MessageCode409PushAISASPSP
+
+## Enum
+
+
+    * `STATUS_INVALID` (value: `"STATUS_INVALID"`)
+
+    * `PRIOR_SUBSCRIPTION_AVAILABLE` (value: `"PRIOR_SUBSCRIPTION_AVAILABLE"`)
+
+
+

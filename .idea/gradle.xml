@@ -21,12 +21,21 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/billing-services" />
+        <option name="gradleHome" value="/usr/local/Cellar/gradle/8.7/libexec" />
+        <option name="gradleJvm" value="corretto-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/billing-services" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/openFinance-services" />
         <option name="gradleJvm" value="corretto-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/openFinance-services" />
-            <option value="$PROJECT_DIR$/openFinance-services/app" />
           </set>
         </option>
       </GradleProjectSettings>
