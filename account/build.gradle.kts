@@ -55,6 +55,12 @@ dependencies {
 
     implementation("io.kotlintest:kotlintest:2.0.7")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.8.1")
+    implementation("org.reactivestreams:reactive-streams:1.0.4")
+    implementation("io.projectreactor:reactor-core:3.6.6")
+
+
 }
 
 tasks.withType<KotlinCompile> {

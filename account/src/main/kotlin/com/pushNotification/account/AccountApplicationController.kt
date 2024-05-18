@@ -18,6 +18,6 @@
         return ResponseEntity(list, HttpStatus.OK)
         }
         @PostMapping
-        fun newSubscription(@RequestBody subscriptionEntry: AddSubscriptionEntryJsonSubscriptionEntry  ) =
+        suspend fun newSubscription(@RequestBody subscriptionEntry: AddSubscriptionEntryJsonSubscriptionEntry  ) =
             ok().body(subscriptionService.createSubscription(subscriptionEntry))
     }

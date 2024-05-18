@@ -5,11 +5,13 @@ import org.springframework.stereotype.Service
 import java.util.*
 import com.billing.model.Invoice
 import com.billing.database.BillingTable
+import kotlinx.coroutines.*
+
 
 @Service
 class BillingService(val kafkaTemplate: KafkaTemplate<String, Invoice>) {
 
-    fun createInvoice(subscriptionEntry: AddSubscriptionEntryJsonSubscriptionEntry): Invoice {
+    suspend fun createInvoice(subscriptionEntry: AddSubscriptionEntryJsonSubscriptionEntry): Invoice = coroutineScope {
 
         val invoice = Invoice().also {
             it.id = UUID.randomUUID().toString()
@@ -17,10 +19,17 @@ class BillingService(val kafkaTemplate: KafkaTemplate<String, Invoice>) {
             it.amount = 5
         }
 
-        kafkaTemplate.send("invoices", "create", invoice)
 
-        BillingTable.insert(invoice)
+        launch(Dispatchers.IO) {
+            kafkaTemplate.send("invoices", "create", invoice)
+            println("Invoice content sent to 'invoices' topic")
+        }
 
-        return invoice;
+        launch(Dispatchers.IO) {
+            BillingTable.insert(invoice)
+            println("Invoice content stored")
+        }
+
+        return@coroutineScope invoice;
     }
 }
