@@ -6,10 +6,10 @@ spring:
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   datasource:
-    url: jdbc:postgresql://localhost:5432/demo_db
+    url: ${DB_URL}
     driverClassName: org.postgresql.Driver
-    username: demo_dev_rw
-    password: dev_database_passwd
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update

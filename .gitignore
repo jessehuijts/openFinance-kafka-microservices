@@ -28,3 +28,7 @@ META-INF/
 
 # settings
 settings.json
+
+.env
+
+billing-services/build/

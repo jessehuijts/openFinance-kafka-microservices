@@ -14,9 +14,9 @@ class App
 
 fun main(args: Array<String>) {
 
-    val dbUrl = "jdbc:postgresql://localhost:5432/demo_db"
-    val dbUser = "demo_dev_rw"
-    val dbPass = "dev_database_passwd"
+    val dbUrl = System.getenv("DB_URL")
+    val dbUser = System.getenv("DB_USER")
+    val dbPass = System.getenv("DB_PASSWORD")
 
     Database.connect(dbUrl, driver = "org.postgresql.Driver", user = dbUser, password = dbPass)
 
