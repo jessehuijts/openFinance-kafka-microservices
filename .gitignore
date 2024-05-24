@@ -32,3 +32,5 @@ settings.json
 .env
 
 billing-services/build/
+
+.idea
