@@ -1,14 +1,14 @@
 # openFinance-kafka-microservice
 
 
-##Summary
+## Summary
 Implementation of a Berlin Group openFinance API for push account notifications. A third party payment provider will 
 subscribe at a financial institution on behalf of the user, so that the user can receive push events. There are 2 
 microservices involved: `subscription-service` and the `billing-service`. For every subscription the bank will store
 it in the database and emit an event towards the broker. A listener to the topic will pick up the event and will 
 generate an invoice, which in turn is also stored and emitted to an invoice topic
 
-##Get Started
+## Get Started
 
 To see it in action:
 
@@ -41,6 +41,7 @@ executable:
 /bin/bash ./run
 ```
 
+## Play around
 Now you are ready to play around with it. Use Postman or another tool you like to make a request to this
 endpoint: `POST/http://localhost:8881/subscriptions/push-balances`.
 
