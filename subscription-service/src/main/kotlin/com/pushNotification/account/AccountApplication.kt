@@ -8,7 +8,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import org.jetbrains.exposed.sql.*
 
 @SpringBootApplication
-class AccountApplication
+class App
 
 fun main(args: Array<String>) {
 
@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
 		SchemaUtils.create(SubscriptionTable)
 	}
 
-	runApplication<AccountApplication>(*args)
-	print("start account application...")
+	runApplication<App>(*args)
+	print("starting processing subscription application..")
 }
 
